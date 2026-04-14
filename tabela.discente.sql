@@ -2,8 +2,8 @@
 
 CREATE SCHEMA universidade;
 CREATE TYPE universidade.tipo_status_discente AS ENUM ('ATIVO', 'REGULAR', 'NAOESTA');
-CREATE TYPE universidade.tipo_grau AS ENUM ('graduação', 'pós graduação', 'mestrado');
-CREATE TYPE universidade.tipo_nivel AS ENUM ('');
+CREATE TYPE universidade.tipo_grau AS ENUM ('BACHARELADO', 'LICENCIATURA', 'mestrado');
+CREATE TYPE universidade.tipo_nivel AS ENUM ('GRADUADO', 'MESTRADO');
 CREATE TYPE universidade.tipo_turno AS ENUM ('MATUTINO', 'VESPERTINO', 'NOTURNO');
 CREATE TYPE universidade.tipo_campus AS ENUM ('São Cristovão', 'gloria');
 
@@ -21,8 +21,9 @@ CREATE TYPE universidade.tipo_campus AS ENUM ('São Cristovão', 'gloria');
       	grau universidade.tipo_grau,
       	nivel universidade.tipo_nivel,
       	turno universidade.tipo_turno,
-      	campus universidade.tipo_campus
-      	coordenador VARCHAR
+      	campus universidade.tipo_campus,
+      	coordenador VARCHAR,
+      	PRIMARY KEY(nome, nivel, turno, campus)
     );
    
 
@@ -44,3 +45,6 @@ UPDATE universidade.discente
 UPDATE universidade.discente
 	SET NUMERO = 7999606
     WHERE nome = 'esther kelre';
+    
+INSERT INTO universidade.curso VALUES ('engenharia de computação', 'BACHARELADO', 'GRADUADO', 'MATUTINO','gloria', 'joao vitor' ),('Sistema de informação', 'BACHARELADO', 'GRADUADO', 'MATUTINO','gloria', 'joao vitor' ) ;   
+ 
