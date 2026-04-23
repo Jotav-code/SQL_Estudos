@@ -38,4 +38,13 @@ SELECT nome,cpf FROM usuario WHERE telefone IS NOT null;
 
 -- 4 --
 
-SELECT nome, cod_disc FROM disciplina WHERE pre_req IS NOT null AND creditos > 2
+SELECT nome, cod_disc FROM disciplina WHERE pre_req IS NOT null AND creditos > 2;
+
+-- juntar tabelas chave estrangeira igual a chave primaria--
+
+SELECT * FROM cursa INNER JOIN turma ON cursa.id_turma = turma.id_turma;
+
+-- Listar nome da discplina e nome do seu departamento responsável --
+
+SELECT * FROM disciplina INNER JOIN departamento ON disciplina.depto_responsavel = departamento.cod_depto
+
