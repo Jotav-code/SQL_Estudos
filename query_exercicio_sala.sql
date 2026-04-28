@@ -48,7 +48,28 @@ SELECT * FROM cursa INNER JOIN turma ON cursa.id_turma = turma.id_turma;
 -- Listar nome da discplina e nome do seu departamento responsável --
 
 SELECT * FROM disciplina INNER JOIN departamento ON disciplina.depto_responsavel = departamento.cod_depto */
-
+/*
 SELECT DISTINCT c.mat_estudante
 FROM cursa c INNER JOIN estudante e ON (c.mat_estudante = e.mat_estudante)
+ORDER BY c.mat_estudante; */
+
+/*
+SELECT *
+FROM cursa c RIGHT OUTER JOIN estudante e ON (c.mat_estudante = e.mat_estudante)
 ORDER BY c.mat_estudante;
+*/
+
+-- Liste a matricula de professor e o id das turmas que o professor leciona, incluindo os professores que nao lecionam --
+
+/*
+SELECT * FROM leciona;
+SELECT * FROM turma;*/
+
+-- SELECT * FROM leciona FULL OUTER JOIN turma ON leciona.id_turma = turma.id_turma--
+
+/*
+SELECT u.nome , l.id_turme, t.codd_isc 
+FROM leciona l join professor p ON l.mat_professor = p.mat_professor lp
+JOIN usuario u ON lp.cpf = u.cpf
+JOIN turma t ON lp.id_turma = t.ide_turma;
+*/
