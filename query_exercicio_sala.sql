@@ -73,3 +73,56 @@ FROM leciona l join professor p ON l.mat_professor = p.mat_professor lp
 JOIN usuario u ON lp.cpf = u.cpf
 JOIN turma t ON lp.id_turma = t.ide_turma;
 */
+
+
+SET search_path TO universidade;
+/*
+SELECT nome, avg(nota), count (*)
+FROM cursa c JOIN turma t USING(id_turma)
+	JOIN disciplina d USING(cod_disc)
+GROUP BY nome;
+
+SELECT mat_estudante, avg(nota), count (*)
+FROM cursa c JOIN turma USING (id_turma)
+	JOIN disciplina d USING (cod_disc)
+GROUP BY mat_estudante;
+
+SELECT * FROM estudante;
+
+SELECT cod_disc,id_turma, avg(nota), count(*)
+FROM cursa c JOIN turma t USING (id_turma)
+	JOIN disciplina d USING (cod_disc)
+GROUP BY cod_disc, id_turma
+ORDER BY cod_disc;
+
+
+SELECT cod_disc, ano_ingresso, avg(nota), count(*)
+FROM cursa c 
+JOIN turma t USING(id_turma)
+	JOIN estudante USING(mat_estudante)
+WHERE nota IS NOT NULL
+GROUP BY cod_disc, ano_ingresso
+ORDER BY avg(nota) DESC;
+
+
+SELECT nome, count(id_turma)
+FROM cursa c 
+JOIN turma t USING(id_turma)
+	JOIN estudante USING(mat_estudante)
+		JOIN usuario u USING(cpf)
+GROUP BY nome
+ORDER BY count(id_turma) DESC
+;
+
+*/
+
+SELECT nome, count(*)
+FROM cursa c 
+JOIN turma t USING(id_turma)
+	JOIN estudante USING(mat_estudante)
+		JOIN usuario u USING(cpf)
+GROUP BY nome, mat_estudante
+ORDER BY count(*) DESC
+
+;
+
