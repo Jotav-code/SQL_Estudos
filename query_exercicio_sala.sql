@@ -126,3 +126,54 @@ ORDER BY count(*) DESC
 
 ;
 
+
+SELECT nome, count(id_turma)
+FROM cursa c 
+JOIN turma t USING(id_turma)
+	JOIN estudante USING(mat_estudante)
+		JOIN usuario u USING(cpf)
+GROUP BY nome
+ORDER BY count(id_turma) DESC
+;
+
+*/
+/*
+SELECT nome, count(*)
+FROM cursa c 
+JOIN turma t USING(id_turma)
+	JOIN estudante USING(mat_estudante)
+		JOIN usuario u USING(cpf)
+GROUP BY nome, mat_estudante
+ORDER BY count(*) DESC
+
+;
+
+SELECT * FROM
+(
+
+SELECT cod_disc, ano_ingresso, avg(nota)media, count(*)
+FROM cursa c 
+JOIN turma t USING(id_turma)
+	JOIN estudante USING(mat_estudante)
+WHERE nota IS NOT NULL
+GROUP BY cod_disc, ano_ingresso
+ORDER BY avg(nota) DESC
+
+) 
+med_ent
+WHERE media > 5
+;
+
+*/
+
+WITH med_ent AS( 
+
+SELECT cod_disc, ano_ingresso, avg(nota)media, count(*)
+FROM cursa c 
+JOIN turma t USING(id_turma)
+	JOIN estudante USING(mat_estudante)
+WHERE nota IS NOT NULL
+GROUP BY cod_disc, ano_ingresso
+ORDER BY avg(nota) DESC
+
+)
