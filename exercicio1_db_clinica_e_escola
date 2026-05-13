@@ -1,0 +1,63 @@
+SET SEARCH_PATH TO universidade;
+SET search_path TO hospital;
+--SELECT departamento, cpf FROM professor
+-- WHERE departamento = 'DMA'
+
+-- SELECT * FROM cursa
+-- WHERE mat_estudante = 'E101'
+
+--SELECT * FROM usuario
+--WHERE telefone IS NOT NULL
+
+--SELECT * FROM disciplina
+--WHERE creditos > 2 AND pre_req IS NOT NULL
+
+--SELECT AVG(nota) AS media_aluno FROM cursa
+
+--SELECT count(DISTINCT mat_professor) FROM plano;
+
+--SELECT chefe FROM departamento
+--WHERE chefe IS NOT NULL
+--UNION
+--SELECT mat_professor FROM plano;
+
+--SELECT chefe FROM departamento
+--INTERSECT
+--SELECT mat_professor FROM plano
+
+--SELECT mat_professor FROM plano
+--EXCEPT
+--SELECT chefe FROM departamento
+
+--SELECT * FROM usuario;
+
+--SELECT primeironome, sobrenome FROM usuario;
+
+--SELECT * FROM usuario
+--WHERE sexo = 'M'
+
+--SELECT * FROM perfil
+--WHERE ativo = 'S'
+
+--SELECT DISTINCT cidade FROM  endereco 
+
+--SELECT DISTINCT bairro FROM endereco
+--WHERE cidade = 'Aracaju'
+
+--SELECT primeironome, sobrenome FROM usuario
+--ORDER BY primeironome , sobrenome 
+
+--SELECT DISTINCT sobrenome FROM usuario
+--WHERE sexo = 'F'
+--ORDER BY sobrenome
+
+--SELECT MAX(salario) AS maior_salario, MIN(salario) AS menor_salario FROM medico
+
+--SELECT AVG(salario) FROM medico
+--WHERE especialidade = 'Clínico Geral'
+
+--SELECT count(*) FROM usuario
+--WHERE sexo = 'M'
+
+SELECT * FROM usuario
+WHERE sexo = 'M' AND datanasc >= '1980-01-01'
